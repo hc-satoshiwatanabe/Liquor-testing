@@ -1,0 +1,21 @@
+<mat-accordion>
+  <mat-expansion-panel
+      (opened)="panelOpenState = true"
+      (closed)="panelOpenState = false">
+
+    <!-- 見出し（閉じても見えるところ） -->
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        解説
+      </mat-panel-title>
+      <mat-panel-description>
+        {{panelOpenState ? '閉じる' : '開く'}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+      <!-- 開いてみえるところ -->
+      <p>正解：{{tips.answer+1}}</p>
+      <div class="pre-wrap">{{tips.tips}}</div>
+
+    </mat-expansion-panel>
+</mat-accordion>
