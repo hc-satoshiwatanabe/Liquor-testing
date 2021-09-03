@@ -1,17 +1,17 @@
-<nav>
-  <a [routerLink]="['/']" routerLinkActive="router-link-active" >
-    ホーム
-  </a>
-</nav>
-<label>日本酒検定３級　練習問題</label>
 <div style="margin: 15px">
+  <nav>
+    <a [routerLink]="['/']" routerLinkActive="router-link-active" >
+      <h5>ホーム</h5>
+    </a>
+  </nav>
+  <label>日本酒検定３級　練習問題</label>
   <div *ngFor="let toi of questions; let i = index">
 
     <div *ngIf="toi.chapter !==''">
-      <h2>
+      <h3>
         <label id="toi">問題{{ i + 1 }}.</label>
-      </h2>
-      <h4>{{ toi.chapter }}</h4>
+      </h3>
+      <h5>{{ toi.chapter }}</h5>
       <!-- 選択肢（ラジオボタン） -->
       <div class="form-check">
         <mat-radio-group

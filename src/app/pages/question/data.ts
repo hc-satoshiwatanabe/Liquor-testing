@@ -608,58 +608,58 @@ export const Questions: Question[] = [
     "tips": ""
   },
   {
-    "chapter": "",
+    "chapter": "屠蘇（とそ）の説明で正しいものはどれか。",
     "items": [
-      { "val": 0, "name": "" },
-      { "val": 1, "name": "" },
-      { "val": 2, "name": "" },
-      { "val": 3, "name": "" }
+      { "val": 0, "name": "漢方薬を日本酒やみりんに混ぜたもの" },
+      { "val": 1, "name": "その年の米の豊作を祈願するために飲まれたもの" },
+      { "val": 2, "name": "子孫繁栄などを願って桃の節句に飲まれたもの" },
+      { "val": 3, "name": "不老長寿などを願って重陽の節句に飲まれたもの" }
     ],
-    "answer": null,
+    "answer": 0,
     "tips": ""
   },
   {
-    "chapter": "",
+    "chapter": "白酒（しろさけ）の説明で正しいものはどれか。",
     "items": [
-      { "val": 0, "name": "" },
-      { "val": 1, "name": "" },
-      { "val": 2, "name": "" },
-      { "val": 3, "name": "" }
+      { "val": 0, "name": "漢方薬を日本酒やみりんに混ぜたもの" },
+      { "val": 1, "name": "その年の米の豊作を祈願するために飲まれたもの" },
+      { "val": 2, "name": "子孫繁栄などを願って桃の節句に飲まれたもの" },
+      { "val": 3, "name": "不老長寿などを願って重陽の節句に飲まれたもの" }
     ],
-    "answer": null,
+    "answer": 2,
     "tips": ""
   },
   {
-    "chapter": "",
+    "chapter": "「雪冷え」と呼ばれる温度帯はどれか。",
     "items": [
-      { "val": 0, "name": "" },
-      { "val": 1, "name": "" },
-      { "val": 2, "name": "" },
-      { "val": 3, "name": "" }
+      { "val": 0, "name": "5℃前後" },
+      { "val": 1, "name": "１5℃前後" },
+      { "val": 2, "name": "３5℃前後" },
+      { "val": 3, "name": "５5℃〜６０℃" }
     ],
-    "answer": null,
+    "answer": 0,
     "tips": ""
   },
   {
-    "chapter": "",
+    "chapter": "「人肌燗」とよばれる温度帯はどれか。",
     "items": [
-      { "val": 0, "name": "" },
-      { "val": 1, "name": "" },
-      { "val": 2, "name": "" },
-      { "val": 3, "name": "" }
+      { "val": 0, "name": "5℃前後" },
+      { "val": 1, "name": "１5℃前後" },
+      { "val": 2, "name": "３5℃前後" },
+      { "val": 3, "name": "５5℃〜６０℃" }
     ],
-    "answer": null,
+    "answer": 2,
     "tips": ""
   },
   {
-    "chapter": "",
+    "chapter": "最も「ぬる燗」に向くタイプはどれか。",
     "items": [
-      { "val": 0, "name": "" },
-      { "val": 1, "name": "" },
-      { "val": 2, "name": "" },
-      { "val": 3, "name": "" }
+      { "val": 0, "name": "薫酒　香りの高いタイプ" },
+      { "val": 1, "name": "爽酒　軽快でなめらかなタイプ" },
+      { "val": 2, "name": "酵酒　コクのあるタイプ" },
+      { "val": 3, "name": "熟酒　塾生タイプ" }
     ],
-    "answer": null,
+    "answer": 2,
     "tips": ""
   },
   {

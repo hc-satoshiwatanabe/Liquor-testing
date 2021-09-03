@@ -9,14 +9,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { TipsComponent } from './pages/tips/tips.component';
+import { TipsComponent } from './pages/question/tips/tips.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     QuestionComponent,
-    TipsComponent
+    TipsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
