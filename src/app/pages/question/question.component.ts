@@ -1,7 +1,7 @@
 import { Question } from './model';
 import { Questions } from './data';
 import { Component, OnInit, ViewChild } from '@angular/core';
-
+import { faHome } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-question',
   templateUrl: './question.component.html',
