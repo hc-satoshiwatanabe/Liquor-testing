@@ -1,3 +1,9 @@
+<nav>
+  <a [routerLink]="['/']" routerLinkActive="router-link-active" >
+    ホーム
+  </a>
+</nav>
+<label>日本酒検定３級　練習問題</label>
 <div style="margin: 15px">
   <div *ngFor="let toi of questions; let i = index">
 
@@ -7,21 +13,23 @@
       </h2>
       <h4>{{ toi.chapter }}</h4>
       <!-- 選択肢（ラジオボタン） -->
-      <mat-radio-group
-        aria-labelledby="toi"
-        class="example-radio-group"
-        [(ngModel)]="selectItem[i]"
-      >
-        <mat-radio-button
-          class="example-radio-button"
-          *ngFor="let item of toi.items"
-          [value]="item.val"
+      <p>
+        <mat-radio-group
+          aria-labelledby="toi"
+          class="example-radio-group"
+          [(ngModel)]="selectItem[i]"
         >
-          {{ item.val + 1 }}.  {{ item.name }}
-          <!-- end loop -->
-        </mat-radio-button>
-        <br />
-      </mat-radio-group>
+          <mat-radio-button
+            class="example-radio-button"
+            *ngFor="let item of toi.items"
+            [value]="item.val"
+          >
+            {{ item.val + 1 }}.  {{ item.name }}
+            <!-- end loop -->
+          </mat-radio-button>
+          <br />
+        </mat-radio-group>
+      </p>
       <!-- 回答・答えボタン -->
       <button mat-raised-button color="primary" (click)="myCheck()">回答</button>
       <button mat-raised-button  color="accent">{{ kaitou[i] }}</button>
