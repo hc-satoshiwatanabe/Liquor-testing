@@ -10,6 +10,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { TipsComponent } from './pages/tips/tips.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { TipsComponent } from './pages/tips/tips.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatRadioModule, MatButtonModule, MatExpansionModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

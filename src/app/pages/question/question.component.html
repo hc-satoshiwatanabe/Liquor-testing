@@ -13,7 +13,7 @@
       </h2>
       <h4>{{ toi.chapter }}</h4>
       <!-- 選択肢（ラジオボタン） -->
-      <p>
+      <div class="form-check">
         <mat-radio-group
           aria-labelledby="toi"
           class="example-radio-group"
@@ -29,7 +29,7 @@
           </mat-radio-button>
           <br />
         </mat-radio-group>
-      </p>
+      </div>
       <!-- 回答・答えボタン -->
       <button mat-raised-button color="primary" (click)="myCheck()">回答</button>
       <button mat-raised-button  color="accent">{{ kaitou[i] }}</button>
