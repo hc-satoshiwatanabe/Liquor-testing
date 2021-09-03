@@ -568,7 +568,7 @@ export const Questions: Question[] = [
       { "val": 0, "name": "薫酒　香りの高いタイプ" },
       { "val": 1, "name": "爽酒　軽快でなめらかなタイプ" },
       { "val": 2, "name": "酵酒　コクのあるタイプ" },
-      { "val": 3, "name": "熟酒　塾生タイプ" }
+      { "val": 3, "name": "熟酒　熟成タイプ" }
     ],
     "answer": 0,
     "tips": ""
@@ -580,7 +580,7 @@ export const Questions: Question[] = [
       { "val": 0, "name": "薫酒　香りの高いタイプ" },
       { "val": 1, "name": "爽酒　軽快でなめらかなタイプ" },
       { "val": 2, "name": "酵酒　コクのあるタイプ" },
-      { "val": 3, "name": "熟酒　塾生タイプ" }
+      { "val": 3, "name": "熟酒　熟成タイプ" }
     ],
     "answer": 2,
     "tips": ""
@@ -591,7 +591,7 @@ export const Questions: Question[] = [
       { "val": 0, "name": "薫酒　香りの高いタイプ" },
       { "val": 1, "name": "爽酒　軽快でなめらかなタイプ" },
       { "val": 2, "name": "酵酒　コクのあるタイプ" },
-      { "val": 3, "name": "熟酒　塾生タイプ" }
+      { "val": 3, "name": "熟酒　熟成タイプ" }
     ],
     "answer": 0,
     "tips": ""
@@ -602,7 +602,7 @@ export const Questions: Question[] = [
       { "val": 0, "name": "薫酒　香りの高いタイプ" },
       { "val": 1, "name": "爽酒　軽快でなめらかなタイプ" },
       { "val": 2, "name": "酵酒　コクのあるタイプ" },
-      { "val": 3, "name": "熟酒　塾生タイプ" }
+      { "val": 3, "name": "熟酒　熟成タイプ" }
     ],
     "answer": 2,
     "tips": ""
