@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -7,10 +7,14 @@ import { faHome } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  @Input() drawer? :string;
   faHome = faHome;
+  showFiller = false;
   constructor() { }
 
   ngOnInit(): void {
   }
 
 }
+
+

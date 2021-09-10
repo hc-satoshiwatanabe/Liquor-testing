@@ -16,6 +16,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HeaderComponent } from './pages/header/header.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatIconModule } from "@angular/material/icon";
+import { MatCardModule } from '@angular/material/card';
+import { MatSidenavModule } from '@angular/material/sidenav';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +33,7 @@ import { MatIconModule } from "@angular/material/icon";
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatRadioModule, MatButtonModule, MatExpansionModule, MatToolbarModule, MatIconModule,
+    MatRadioModule, MatButtonModule, MatExpansionModule, MatToolbarModule, MatIconModule, MatCardModule, MatSidenavModule,
     FormsModule,
     NgbModule,
     FontAwesomeModule
