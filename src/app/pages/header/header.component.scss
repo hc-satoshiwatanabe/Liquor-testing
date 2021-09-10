@@ -8,7 +8,7 @@
 	#f78f2f,
 	#f4c151,
 	#75d850,
-	#6284FF,
+	// #6284FF,
 	#eb5252
  	);
 }
@@ -61,4 +61,7 @@ header {
       }
     }
   }
+}
+.example-spacer {
+  flex: 1 1 auto;
 }

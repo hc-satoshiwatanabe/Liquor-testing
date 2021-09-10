@@ -14,7 +14,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './pages/home/home.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HeaderComponent } from './pages/header/header.component';
-
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatIconModule } from "@angular/material/icon";
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,7 @@ import { HeaderComponent } from './pages/header/header.component';
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatRadioModule, MatButtonModule, MatExpansionModule,
+    MatRadioModule, MatButtonModule, MatExpansionModule, MatToolbarModule, MatIconModule,
     FormsModule,
     NgbModule,
     FontAwesomeModule
