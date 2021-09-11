@@ -1,4 +1,4 @@
-import { Question } from '../model';
+import { Question } from './model';
 
 export const nihonsyu3: Question[] = [
   {

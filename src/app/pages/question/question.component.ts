@@ -1,6 +1,6 @@
-import { itca } from './data/data_itca';
-import { Question } from './model';
-import { nihonsyu3 } from './data/data_nihonsyu3';
+import { itca } from '../data/data_itca';
+import { Question } from '../data/model';
+import { nihonsyu3 } from '../data/data_nihonsyu3';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { ActivatedRoute } from '@angular/router';
