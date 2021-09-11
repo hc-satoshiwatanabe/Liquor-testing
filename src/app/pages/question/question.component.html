@@ -1,6 +1,12 @@
 
 <div style="margin: 15px">
-  <!-- <label>日本酒検定３級　練習問題</label> -->
+  <!-- <i class="fa fa-random" aria-hidden="true"></i> -->
+  <mat-slide-toggle [(ngModel)]="isShuffle">シャッフル&nbsp;&nbsp;&nbsp;</mat-slide-toggle>
+  <button mat-mini-fab  color="accent" (click)="openDialog()">
+    <i class="fas fa-retweet"></i>
+  </button>
+  <!-- 下線 -->
+  <hr />
   <div *ngFor="let toi of questions; let i = index">
 
     <div *ngIf="toi.chapter !==''">

@@ -18,22 +18,24 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatIconModule } from "@angular/material/icon";
 import { MatCardModule } from '@angular/material/card';
 import { MatSidenavModule } from '@angular/material/sidenav';
-
-
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { DialogComponent } from './pages/dialog/dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent,
     QuestionComponent,
     TipsComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatRadioModule, MatButtonModule, MatExpansionModule, MatToolbarModule, MatIconModule, MatCardModule, MatSidenavModule,
+    MatRadioModule, MatButtonModule, MatExpansionModule, MatToolbarModule, MatIconModule, MatCardModule, MatSidenavModule, MatSlideToggleModule, MatDialogModule,
     FormsModule,
     NgbModule,
     FontAwesomeModule
