@@ -1,0 +1,9 @@
+<section class="example-section"  >
+  <span class="example-list-section">
+      <ng-container *ngFor="let item of check.items;">
+        <mat-checkbox style="display:block;margin: 15px;" [(ngModel)]="item.completed"  [value]="item.val"  (change)="someComplete()">
+          {{item.val+1}}.{{item.name}}
+        </mat-checkbox>
+      </ng-container>
+  </span>
+</section>

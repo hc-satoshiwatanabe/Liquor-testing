@@ -16,25 +16,35 @@
       <h5>{{ toi.chapter }}</h5>
       <!-- 選択肢（ラジオボタン） -->
       <div class="form-check horizontal-list">
-        <mat-radio-group
-          aria-labelledby="toi"
-          class="example-radio-group"
-          [(ngModel)]="selectItem[i]"
-        >
-          <mat-radio-button
-            class="example-radio-button"
-            *ngFor="let item of toi.items"
-            [value]="item.val"
+        <div *ngIf="toi.multi === undifined">
+          <mat-radio-group
+            aria-labelledby="toi"
+            class="example-radio-group"
+            [(ngModel)]="selectItem[i]"
           >
-            {{ item.val + 1 }}.  {{ item.name }}
-            <!-- end loop -->
-          </mat-radio-button>
+            <mat-radio-button
+              class="example-radio-button"
+              *ngFor="let item of toi.items"
+              [value]="item.val"
+            >
+              {{ item.val + 1 }}.  {{ item.name }}
+              <!-- end loop -->
+            </mat-radio-button>
+            <br />
+          </mat-radio-group>
+
+        </div>
+
+        <!-- 複数選択 -->
+        <div *ngIf="toi.multi === true">
+          <app-checkbox [check]="toi" (isSelected)="checkSelectItem($event, i)" (kaitou)="setKaitou($event, i )"></app-checkbox>
           <br />
-        </mat-radio-group>
+        </div>
       </div>
+
       <!-- 回答・答えボタン -->
       <button mat-raised-button color="primary" (click)="myCheck()">回答</button>
-      <button mat-raised-button  color="accent">{{ kaitou[i] }}</button>
+      <button mat-raised-button color="accent">{{ kaitou[i] }}</button>
       <!-- 解説 -->
       <div *ngIf="finished[i] === true">
         <app-tips [tips]="toi"></app-tips>

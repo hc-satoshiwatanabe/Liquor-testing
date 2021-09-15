@@ -7,6 +7,7 @@
 export interface Item {
   val: number;
   name: string;
+  completed?: boolean;
 
 }
 /**
@@ -18,6 +19,7 @@ export interface Item {
 export interface Question {
   chapter: string;
   items: Item[];
-  answer: number;
+  answer: number[];
+  multi?: boolean;
   tips?: string;
 }

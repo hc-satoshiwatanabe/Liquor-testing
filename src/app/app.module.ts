@@ -21,6 +21,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { DialogComponent } from './pages/dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { CheckboxComponent } from './pages/question/checkbox/checkbox.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,14 +30,19 @@ import { MatDialogModule } from '@angular/material/dialog';
     TipsComponent,
     HomeComponent,
     HeaderComponent,
-    DialogComponent
+    DialogComponent,
+    CheckboxComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatRadioModule, MatButtonModule, MatExpansionModule, MatToolbarModule, MatIconModule, MatCardModule, MatSidenavModule, MatSlideToggleModule, MatDialogModule,
+    MatRadioModule, MatButtonModule,
+    MatExpansionModule, MatToolbarModule,
+    MatIconModule, MatCardModule,
+    MatSidenavModule, MatSlideToggleModule,
+    MatDialogModule, MatCheckboxModule,
     FormsModule,
     NgbModule,
     FontAwesomeModule
