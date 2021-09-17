@@ -7,7 +7,7 @@
   </button>
   <!-- 下線 -->
   <hr />
-  <div *ngFor="let toi of questions; let i = index">
+  <div *ngFor="let toi of questions; let i = index;">
 
     <div *ngIf="toi.chapter !==''">
       <h3>
@@ -43,7 +43,7 @@
       </div>
 
       <!-- 回答・答えボタン -->
-      <button mat-raised-button color="primary" (click)="myCheck()">回答</button>
+      <button mat-raised-button color="primary" (click)="myCheck()">解答</button>
       <button mat-raised-button color="accent">{{ kaitou[i] }}</button>
       <!-- 解説 -->
       <div *ngIf="finished[i] === true">

@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { Question } from '../data/model';
 
@@ -8,13 +8,28 @@ import { Question } from '../data/model';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  @Input() drawer? :string;
+
+  @Output() isShow?: EventEmitter<boolean> = new EventEmitter(); // 追加
   faHome = faHome;
-  showFiller = false;
+  showFiller :boolean= false;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  /**
+   * showDrawer
+   */
+  public showDrawer() {
+    if (this.showFiller == true) {
+      this.showFiller = false;
+      this.isShow.emit(false);
+    }
+    else {
+      this.showFiller = true;
+      this.isShow.emit(true);
+    }
   }
 
 }
