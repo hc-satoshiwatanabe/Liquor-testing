@@ -11,7 +11,7 @@ export class CheckboxComponent implements OnInit {
 
   @Input() check?: Question;
   @Output() isSelected: EventEmitter<boolean> = new EventEmitter(); // 追加
-  @Output() kaitou: EventEmitter<string> = new EventEmitter(); // 追加
+  @Output() isExact: EventEmitter<boolean> = new EventEmitter(); // 追加
 
   ngOnInit(): void {
   }
@@ -36,11 +36,11 @@ export class CheckboxComponent implements OnInit {
 
     console.log(this.arrayEquals(this.check.answer, ar));
     if (this.arrayEquals(this.check.answer, ar)) {
-      this.kaitou.emit('正解！');
+      this.isExact.emit(true);
       // console.log('正解！');
     }
     else {
-      this.kaitou.emit('不正解。');
+      this.isExact.emit(false);
       // console.log('不正解。');
     }
 

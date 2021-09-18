@@ -6,6 +6,13 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
+export interface Kaitoutemp{
+  msg: string;
+  isExact: boolean;
+
+}
 
 @Component({
   selector: 'app-question',
@@ -17,8 +24,9 @@ export class QuestionComponent implements OnInit {
   toppings: FormGroup;
   selectItem: number[] = [];
   kaitou: string[] = [];
-  kaitoutemp: string[] = [];
+  kaitoutemp: Kaitoutemp[] = [];
   finished: boolean[] = [];
+  corrects: number = 0;
 
   isShuffle: boolean = false;
   //試験データの取得
@@ -27,6 +35,7 @@ export class QuestionComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     public dialog: MatDialog,
+    private _snackBar: MatSnackBar
   ) {  }
 
   ngOnInit(): void {
@@ -133,38 +142,75 @@ export class QuestionComponent implements OnInit {
     return false;
   }
 
-  public myCheck() {
-    for (let i = 0; i < this.questions.length; i++) {
-      if (this.selectItem[i] !== undefined) {
-        this.finished[i] = true;
+  public myCheck(cidx:number) {
+    // for (let i = 0; i < this.questions.length; i++) {
+    if (this.selectItem[cidx] !== undefined) {
+
 
         //択一式問題
-        if (this.questions[i].multi === undefined) {
-          if (this.selectItem[i] === this.questions[i].answer[0]) {
-            console.log('exact!!');
-            this.kaitou[i] = '正解！';
+      if (this.questions[cidx].multi === undefined) {
+        if (this.selectItem[cidx] === this.questions[cidx].answer[0]) {
+          this.kaitou[cidx] = '正解！';
+
+
+          if (this.finished[cidx] == undefined) {
+            this.corrects++;        //解答済みの問題を正解しても、連続正解に加算しない。
           }
-          else {
-            this.kaitou[i] = '不正解。';
+          if (this.corrects >= 2) {
+            this.openSnackBar(this.corrects.toString(),1000);
           }
         }
         else {
-          this.kaitou[i] = this.kaitoutemp[i];
+          this.kaitou[cidx] = '不正解。';
+          this.corrects = 0;
+          // this.finished[cidx] = false;
+          }
+        this.finished[cidx] = true;
+      }
+      //複数選択
+      else {
+        this.kaitou[cidx] = this.kaitoutemp[cidx].msg;
+        if (this.kaitoutemp[cidx].isExact === true) {
+          if (this.finished[cidx] == undefined) {
+            this.corrects++;        //解答済みの問題を正解しても、連続正解に加算しない。
+          }
+          if (this.corrects >= 2) {
+            this.openSnackBar(this.corrects.toString(), 1000);
+          }
         }
+        this.finished[cidx] = true;
       }
     }
+    // }
   }
 
   public checkSelectItem( t: boolean, i :number) {
     this.selectItem[i] = 1;
+    // this.finished[i] = true;
     console.log(`selected[${i}]`);
   }
 
   /**
    * setKaitou
    */
-  public setKaitou(msg: string, i: number) {
-    this.kaitoutemp[i] = msg;
+  public setKaitou(isExact: boolean, i: number) {
+    if (isExact === true) {
+      this.kaitoutemp[i] = { msg: '正解！', isExact: true };
+      // this.finished[i] = true;
+    }
+    else {
+      this.kaitoutemp[i] = { msg: '不正解。', isExact: false };
+      // this.finished[i] = false;
+    }
+
   }
 
+
+  private openSnackBar(msg:string, p_time:number) {
+    this._snackBar.open(`${msg} 問連続正解！`, null,{
+      duration: p_time,
+      horizontalPosition: 'center',
+      verticalPosition: 'bottom'
+    });
+  }
 }

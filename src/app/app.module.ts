@@ -23,6 +23,8 @@ import { DialogComponent } from './pages/dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { CheckboxComponent } from './pages/question/checkbox/checkbox.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +45,7 @@ import { CheckboxComponent } from './pages/question/checkbox/checkbox.component'
     MatIconModule, MatCardModule,
     MatSidenavModule, MatSlideToggleModule,
     MatDialogModule, MatCheckboxModule,
+    MatSnackBarModule,
     FormsModule,
     NgbModule,
     FontAwesomeModule

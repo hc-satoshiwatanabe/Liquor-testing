@@ -37,13 +37,18 @@
 
         <!-- 複数選択 -->
         <div *ngIf="toi.multi === true">
-          <app-checkbox [check]="toi" (isSelected)="checkSelectItem($event, i)" (kaitou)="setKaitou($event, i )"></app-checkbox>
+          <app-checkbox
+            [check]="toi"
+            (isSelected)="checkSelectItem($event, i)"
+            (isExact)="setKaitou($event, i )"
+            >
+          </app-checkbox>
           <br />
         </div>
       </div>
 
       <!-- 回答・答えボタン -->
-      <button mat-raised-button color="primary" (click)="myCheck()">解答</button>
+      <button mat-raised-button color="primary" (click)="myCheck(i)">解答</button>
       <button mat-raised-button color="accent">{{ kaitou[i] }}</button>
       <!-- 解説 -->
       <div *ngIf="finished[i] === true">
