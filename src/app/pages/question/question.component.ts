@@ -146,19 +146,19 @@ export class QuestionComponent implements OnInit {
     // for (let i = 0; i < this.questions.length; i++) {
     if (this.selectItem[cidx] !== undefined) {
 
+      //要素数分の配列を作成し、５の倍数の一覧を生成
+      let mod5Ar: number[] = [...Array(this.questions.length)]
+        .map((_, i) => i)
+        .filter(function (n) { return (n % 5 == 0); }); //=> [ 5, 10, 15, 20, 25 ]
 
         //択一式問題
       if (this.questions[cidx].multi === undefined) {
         if (this.selectItem[cidx] === this.questions[cidx].answer[0]) {
           this.kaitou[cidx] = '正解！';
 
+          //連続正解し、正解数が５の倍数の場合にスナックバーを表示する
+          this.CheckSnackBar(cidx, mod5Ar);
 
-          if (this.finished[cidx] == undefined) {
-            this.corrects++;        //解答済みの問題を正解しても、連続正解に加算しない。
-          }
-          if (this.corrects >= 2) {
-            this.openSnackBar(this.corrects.toString(),1000);
-          }
         }
         else {
           this.kaitou[cidx] = '不正解。';
@@ -171,12 +171,10 @@ export class QuestionComponent implements OnInit {
       else {
         this.kaitou[cidx] = this.kaitoutemp[cidx].msg;
         if (this.kaitoutemp[cidx].isExact === true) {
-          if (this.finished[cidx] == undefined) {
-            this.corrects++;        //解答済みの問題を正解しても、連続正解に加算しない。
-          }
-          if (this.corrects >= 2) {
-            this.openSnackBar(this.corrects.toString(), 1000);
-          }
+
+          //連続正解し、正解数が５の倍数の場合にスナックバーを表示する
+          this.CheckSnackBar(cidx, mod5Ar);
+
         }
         this.finished[cidx] = true;
       }
@@ -184,10 +182,17 @@ export class QuestionComponent implements OnInit {
     // }
   }
 
+  private CheckSnackBar(cidx:number, mod5Ar:number[]) {
+    if (this.finished[cidx] == undefined) {
+      this.corrects++;        //解答済みの問題を正解しても、連続正解に加算しない。
+    }
+    if (mod5Ar.indexOf(this.corrects) >= 1) {
+      this.openSnackBar(this.corrects.toString(), 1000);
+    }
+  }
+
   public checkSelectItem( t: boolean, i :number) {
     this.selectItem[i] = 1;
-    // this.finished[i] = true;
-    console.log(`selected[${i}]`);
   }
 
   /**
