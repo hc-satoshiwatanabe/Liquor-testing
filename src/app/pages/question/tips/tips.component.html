@@ -14,7 +14,7 @@
     </mat-expansion-panel-header>
 
       <!-- 開いてみえるところ -->
-      <div *ngIf="tips.multi===false">
+      <div *ngIf="tips.multi===undefined">
         <p>正解：{{tips.answer[0]+1}}</p>
       </div>
 
