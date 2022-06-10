@@ -5,7 +5,7 @@ import { nihonsyu3 } from '../data/data_nihonsyu3';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, UntypedFormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 export interface Kaitoutemp{
@@ -21,7 +21,7 @@ export interface Kaitoutemp{
 })
 export class QuestionComponent implements OnInit {
 
-  toppings: FormGroup;
+  toppings: UntypedFormGroup;
   selectItem: number[] = [];
   kaitou: string[] = [];
   kaitoutemp: Kaitoutemp[] = [];
