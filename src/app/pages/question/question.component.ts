@@ -2,6 +2,7 @@ import { DialogComponent } from './../dialog/dialog.component';
 import { itca } from '../data/data_itca';
 import { Question } from '../data/model';
 import { nihonsyu3 } from '../data/data_nihonsyu3';
+import { nihonsyu2 } from '../data/data_nihonsyu2';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
@@ -80,6 +81,11 @@ export class QuestionComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
 
     switch (id) {
+      case 'nihonsyu2':
+        // 日本酒検定
+        // this.questions = nihonsyu3;
+        this.SetQuestions(nihonsyu2);
+        break;
       case 'nihonsyu3':
         // 日本酒検定
         // this.questions = nihonsyu3;

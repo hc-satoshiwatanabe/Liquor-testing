@@ -30,8 +30,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     AppComponent,
     QuestionComponent,
     TipsComponent,
-    HomeComponent,
     HeaderComponent,
+    HomeComponent,
     DialogComponent,
     CheckboxComponent
   ],
