@@ -22,4 +22,5 @@ export interface Question {
   answer: number[];
   multi?: boolean;
   tips?: string;
+  link?:string;
 }

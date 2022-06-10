@@ -24,7 +24,11 @@
               {{item+1}},
            </p>
       </div>
-      <div class="pre-wrap">{{tips.tips}}</div>
+      <div class="pre-wrap">
+        {{tips.tips}}
+        <br>
+        関連：<a [href]="tips.link" target="_blank">{{tips.link}}</a>
+      </div>
 
     </mat-expansion-panel>
 </mat-accordion>
