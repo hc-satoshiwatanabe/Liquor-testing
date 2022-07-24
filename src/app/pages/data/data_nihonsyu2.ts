@@ -47,59 +47,59 @@ export const nihonsyu2: Question[] = [
     "link":"https://sakeconcierge.com/genealogy-of-sake-rice/"
   },
   {
-    "chapter": "",
+    "chapter": "全国で作られている酒造好適米のうち「五百万石」は全体の何％を占めているか。",
     "items": [
-      { "val": 0, "name": "" },
-      { "val": 1, "name": "" },
-      { "val": 2, "name": "" },
-      { "val": 3, "name": "" }
+      { "val": 0, "name": "約50%" },
+      { "val": 1, "name": "約40%" },
+      { "val": 2, "name": "約20%" },
+      { "val": 3, "name": "約5%" }
     ],
-    "answer": [],
+    "answer": [2],
     "tips": ""
   },
   {
-    "chapter": "",
+    "chapter": "水道の硬度表記において、国税庁分析法の中で東京都内で水道水の平均は次のどれか",
     "items": [
-      { "val": 0, "name": "" },
-      { "val": 1, "name": "" },
-      { "val": 2, "name": "" },
-      { "val": 3, "name": "" }
+      { "val": 0, "name": "硬水" },
+      { "val": 1, "name": "軟水" },
+      { "val": 2, "name": "中軟水" },
+      { "val": 3, "name": "軽硬水" }
     ],
-    "answer": [],
+    "answer": [3],
     "tips": ""
   },
 
   {
-    "chapter": "",
+    "chapter": "灘の宮水の説明で間違っているものはどれか。",
     "items": [
-      { "val": 0, "name": "" },
-      { "val": 1, "name": "" },
-      { "val": 2, "name": "" },
-      { "val": 3, "name": "" }
+      { "val": 0, "name": "宮水の効果が立証されたのは大正初期である" },
+      { "val": 1, "name": "海の近くであり適度なカリウムを含む" },
+      { "val": 2, "name": "西宮の水の略" },
+      { "val": 3, "name": "花崗岩質の地層で採取される" }
     ],
-    "answer": [],
+    "answer": [0],
     "tips": ""
   },
   {
-    "chapter": "",
+    "chapter": "主に日本酒用として使用されている精米機はどれか。",
     "items": [
-      { "val": 0, "name": "" },
-      { "val": 1, "name": "" },
-      { "val": 2, "name": "" },
-      { "val": 3, "name": "" }
+      { "val": 0, "name": "金剛型精米機" },
+      { "val": 1, "name": "円盤型精米機" },
+      { "val": 2, "name": "堅型精米機" },
+      { "val": 3, "name": "横型精米機" }
     ],
-    "answer": [],
+    "answer": [2],
     "tips": ""
   },
   {
-    "chapter": "",
+    "chapter": "日本酒の原料処理「枯らし」の説明で間違っているものはどれか。",
     "items": [
-      { "val": 0, "name": "" },
-      { "val": 1, "name": "" },
-      { "val": 2, "name": "" },
-      { "val": 3, "name": "" }
+      { "val": 0, "name": "米の品温を下げる" },
+      { "val": 1, "name": "冷暗所で２〜3週間保管す" },
+      { "val": 2, "name": "水分を均一化させる" },
+      { "val": 3, "name": "洗米の後に行う" }
     ],
-    "answer": [],
+    "answer": [3],
     "tips": ""
   },
   {
