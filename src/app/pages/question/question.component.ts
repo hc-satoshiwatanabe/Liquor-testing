@@ -3,6 +3,7 @@ import { itca } from '../data/data_itca';
 import { Question } from '../data/model';
 import { nihonsyu3 } from '../data/data_nihonsyu3';
 import { nihonsyu2 } from '../data/data_nihonsyu2';
+import { marketing3 } from '../data/data_marketing3';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
@@ -98,6 +99,10 @@ export class QuestionComponent implements OnInit {
         this.SetQuestions(itca);
         break;
 
+      case 'marketing3':
+        // マーケティング検定３級
+        this.SetQuestions(marketing3);
+        break;
     }
 
   }
