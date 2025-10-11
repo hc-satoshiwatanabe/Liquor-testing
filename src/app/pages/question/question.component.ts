@@ -4,11 +4,17 @@ import { Question } from '../data/model';
 import { nihonsyu3 } from '../data/data_nihonsyu3';
 import { nihonsyu2 } from '../data/data_nihonsyu2';
 import { marketing3 } from '../data/data_marketing3';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { FormBuilder, UntypedFormGroup } from '@angular/forms';
+import { UntypedFormGroup, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { TipsComponent } from './tips/tips.component';
+import { CheckboxComponent } from './checkbox/checkbox.component';
+import { MatRadioModule } from '@angular/material/radio';
+import { NgFor, NgIf } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 export interface Kaitoutemp{
   msg: string;
@@ -17,9 +23,11 @@ export interface Kaitoutemp{
 }
 
 @Component({
-  selector: 'app-question',
-  templateUrl: './question.component.html',
-  styleUrls: ['./question.component.scss']
+    selector: 'app-question',
+    templateUrl: './question.component.html',
+    styleUrls: ['./question.component.scss'],
+    standalone: true,
+    imports: [MatSlideToggleModule, ReactiveFormsModule, FormsModule, MatButtonModule, NgFor, NgIf, MatRadioModule, CheckboxComponent, TipsComponent]
 })
 export class QuestionComponent implements OnInit {
 
@@ -28,9 +36,9 @@ export class QuestionComponent implements OnInit {
   kaitou: string[] = [];
   kaitoutemp: Kaitoutemp[] = [];
   finished: boolean[] = [];
-  corrects: number = 0;
+  corrects = 0;
 
-  isShuffle: boolean = false;
+  isShuffle = false;
   //試験データの取得
   questions: Question[] = [];
 
@@ -111,7 +119,7 @@ export class QuestionComponent implements OnInit {
 
     this.questions = [];
 
-    let wi: number = 0;
+    let wi = 0;
 
     //シャッフル有無
     if (this.isShuffle) {
@@ -158,7 +166,7 @@ export class QuestionComponent implements OnInit {
     if (this.selectItem[cidx] !== undefined) {
 
       //要素数分の配列を作成し、５の倍数の一覧を生成
-      let mod5Ar: number[] = [...Array(this.questions.length)]
+      const mod5Ar: number[] = [...Array(this.questions.length)]
         .map((_, i) => i)
         .filter(function (n) { return (n % 5 == 0); }); //=> [ 5, 10, 15, 20, 25 ]
 

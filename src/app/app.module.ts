@@ -30,38 +30,41 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    QuestionComponent,
-    TipsComponent,
-    HeaderComponent,
-    HomeComponent,
-    DialogComponent,
-    CheckboxComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    MatRadioModule, MatButtonModule,
-    MatExpansionModule, MatToolbarModule,
-    MatIconModule, MatCardModule,
-    MatSidenavModule, MatSlideToggleModule,
-    MatDialogModule, MatCheckboxModule,
-    MatSnackBarModule,
-    FormsModule,
-    RouterModule,
-    NgbModule,
-    FontAwesomeModule,
-    ServiceWorkerModule.register('ngsw-worker.js', {
-      enabled: environment.production,
-      // Register the ServiceWorker as soon as the application is stable
-      // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000'
-    })
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [AppComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
+        MatRadioModule,
+        MatButtonModule,
+        MatExpansionModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatCardModule,
+        MatSidenavModule,
+        MatSlideToggleModule,
+        MatDialogModule,
+        MatCheckboxModule,
+        MatSnackBarModule,
+        FormsModule,
+        RouterModule,
+        NgbModule,
+        FontAwesomeModule,
+        ServiceWorkerModule.register('ngsw-worker.js', {
+            enabled: environment.production,
+            // Register the ServiceWorker as soon as the application is stable
+            // or after 30 seconds (whichever comes first).
+            registrationStrategy: 'registerWhenStable:30000'
+        }),
+        QuestionComponent,
+        TipsComponent,
+        HeaderComponent,
+        HomeComponent,
+        DialogComponent,
+        CheckboxComponent
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
