@@ -35,7 +35,6 @@
             ],
             "scripts": [
               "node_modules/@fortawesome/fontawesome-free/js/all.min.js"
-
             ],
             "serviceWorker": true,
             "ngswConfigPath": "ngsw-config.json"
@@ -74,8 +73,7 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-          },
+          "options": {},
           "configurations": {
             "production": {
               "browserTarget": "Liquor-testing:build:production"
@@ -110,7 +108,6 @@
             ],
             "scripts": [
               "node_modules/@fortawesome/fontawesome-free/js/all.min.js"
-
             ]
           }
         },
@@ -128,8 +125,22 @@
             }
           },
           "defaultConfiguration": "development"
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
+  },
+  "cli": {
+    "schematicCollections": [
+      "angular-eslint"
+    ]
   }
 }

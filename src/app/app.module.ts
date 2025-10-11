@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router'; // router-outletとrouterLinkのために追加
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -49,6 +51,7 @@ import { environment } from '../environments/environment';
     MatDialogModule, MatCheckboxModule,
     MatSnackBarModule,
     FormsModule,
+    RouterModule,
     NgbModule,
     FontAwesomeModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
