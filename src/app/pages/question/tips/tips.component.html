@@ -10,18 +10,18 @@
       </mat-panel-description>
     </mat-expansion-panel-header>
 
-    @if (tips.multi === undefined) {
+    @if (tips?.multi === undefined) {
     <p>正解：{{tips.answer[0] + 1}}</p>
-    } @else if (tips.multi === true) {
+    } @else if (tips?.multi === true) {
     正解：
     @for (item of tips.answer; track item) {
     <p>{{item + 1}},</p>
     }
     }
     <div class="pre-wrap">
-      {{tips.tips}}
+      {{tips?.tips}}
       <br>
-      関連：<a [href]="tips.link" target="_blank">{{tips.link}}</a>
+      関連：<a [href]="tips?.link" target="_blank">{{tips?.link}}</a>
     </div>
 
   </mat-expansion-panel>

@@ -161,7 +161,9 @@ export class QuestionComponent implements OnInit {
   }
 
   private checkConsecutiveAnswers(cidx: number): void {
+    if (this.finished[cidx] === undefined) {
       this.corrects++;
+    }
     // Display snackbar for every 5 consecutive correct answers
     if (this.corrects > 0 && this.corrects % 5 === 0) {
       this.openSnackBar(`${this.corrects}問連続正解！`, 1500);

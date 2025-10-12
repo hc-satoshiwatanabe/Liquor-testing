@@ -32,8 +32,8 @@
 
   <button mat-raised-button color="primary" (click)="myCheck(i)">解答</button>
   <button mat-raised-button color="accent">{{ kaitou[i] }}</button>
-  @if (finished[i] === true) {
-    <app-tips [tips]="toi"></app-tips>
+  @if (finished[i] === true && toi.tips !== undefined) {
+  <app-tips [tips]="toi"></app-tips>
   }
   <hr />
   }

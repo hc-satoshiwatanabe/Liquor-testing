@@ -2,13 +2,12 @@ import { Component, EventEmitter, Input,  Output } from '@angular/core';
 import { Question } from '../../data/model';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { NgFor } from '@angular/common';
 
 @Component({
     selector: 'app-checkbox',
     templateUrl: './checkbox.component.html',
     styleUrls: ['./checkbox.component.scss'],
-    imports: [NgFor, ReactiveFormsModule, FormsModule, MatCheckboxModule]
+    imports: [ ReactiveFormsModule, FormsModule, MatCheckboxModule]
 })
 
 export class CheckboxComponent {
@@ -18,10 +17,10 @@ export class CheckboxComponent {
   @Output() isExact = new EventEmitter<boolean>();
 
 
-  public someComplete():boolean {
+  public someComplete():boolean|undefined {
 
     const ar: number[] = [];
-    if (this.check.items == null) {
+    if (this.check?.items == null) {
       return false;
     }
 
@@ -48,7 +47,7 @@ export class CheckboxComponent {
   }
 
 
-  private arrayEquals(a, b) {
+  private arrayEquals(a:any, b:any) {
     return Array.isArray(a) &&
       Array.isArray(b) &&
       a.length === b.length &&
