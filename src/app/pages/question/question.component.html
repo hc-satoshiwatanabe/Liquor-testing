@@ -30,14 +30,14 @@
     }
   </div>
 
-  <button mat-raised-button color="primary" (click)="myCheck(i)">解答</button>
+    <button mat-raised-button color="primary" (click)="myCheck(i)">解答</button>
 
     @if (finished[i] === true && toi.tips !== undefined) {
       <button mat-raised-button color="accent">{{ kaitou[i] }}</button>
 
       <app-tips [tips]="toi"></app-tips>
     }
-  <hr />
+    <hr />
   }
   }
 </div>
