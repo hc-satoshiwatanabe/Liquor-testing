@@ -7,7 +7,6 @@ import { provideHttpClient } from '@angular/common/http';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideServiceWorker } from '@angular/service-worker';
 import { isDevMode } from '@angular/core';
-import { provideZoneChangeDetection } from '@angular/core'; // 追加
 
 
 // 作成したルート設定をインポート
@@ -28,8 +27,7 @@ bootstrapApplication(AppComponent, {
     provideServiceWorker('ngsw-worker.js', {
       enabled: !isDevMode(),
       registrationStrategy: 'registerWhenStable:30000'
-    }),
-    provideZoneChangeDetection(),
+    })
   ]
 })
   .catch(err => console.error(err));

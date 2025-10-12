@@ -4,9 +4,8 @@ import { MatDialog,MatDialogModule} from '@angular/material/dialog';
 import { MatSnackBar,MatSnackBarModule} from '@angular/material/snack-bar';
 
 import { ReactiveFormsModule, FormsModule} from '@angular/forms';
-
-// --- Component Imports ---
 import { NgFor, NgIf } from '@angular/common';
+// --- Component Imports ---
 import { MatButtonModule } from '@angular/material/button';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -18,6 +17,7 @@ import { itca } from '../data/data_itca';
 import { nihonsyu2 } from '../data/data_nihonsyu2';
 import { nihonsyu3 } from '../data/data_nihonsyu3';
 import { marketing3 } from '../data/data_marketing3';
+import { wine5 } from '../data/data_wine5';
 
 // Interface for answer status
 export interface Kaitoutemp {
@@ -30,10 +30,9 @@ export interface Kaitoutemp {
     templateUrl: './question.component.html',
   styleUrls: ['./question.component.scss'],
     standalone: true,
-    imports: [
-        // Common Angular Modules
-        NgFor,
+  imports: [
         NgIf,
+        NgFor,
         ReactiveFormsModule,
         FormsModule,
         MatDialogModule,
@@ -60,7 +59,11 @@ export class QuestionComponent implements OnInit {
   private _snackBar = inject(MatSnackBar);
 
   ngOnInit(): void {
-    this.getId();
+    setTimeout(() => {
+      this.getId();
+    }, 100);
+
+    //console.log(this.questions)
   }
 
   public openDialog(): void {
@@ -109,6 +112,9 @@ export class QuestionComponent implements OnInit {
         break;
       case 'marketing3':
         this.setQuestions(marketing3);
+        break;
+      case 'wine5':
+        this.setQuestions(wine5);
         break;
       default:
         // Handle unknown id if necessary
