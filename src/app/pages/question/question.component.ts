@@ -10,8 +10,6 @@ import { NgFor, NgIf } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { CheckboxComponent } from './checkbox/checkbox.component';
-import { TipsComponent } from './tips/tips.component';
 import { DialogComponent } from '../dialog/dialog.component'; // DialogComponentをインポート
 
 // --- Data and Models ---
@@ -30,7 +28,8 @@ export interface Kaitoutemp {
 @Component({
     selector: 'app-question',
     templateUrl: './question.component.html',
-    styleUrls: ['./question.component.scss'],
+  styleUrls: ['./question.component.scss'],
+    standalone: true,
     imports: [
         // Common Angular Modules
         NgFor,
@@ -43,9 +42,6 @@ export interface Kaitoutemp {
         MatRadioModule,
         MatSlideToggleModule,
         // Custom Components
-        CheckboxComponent,
-        DialogComponent, // DialogComponentをimportsに追加
-        TipsComponent,
     ]
 })
 export class QuestionComponent implements OnInit {
