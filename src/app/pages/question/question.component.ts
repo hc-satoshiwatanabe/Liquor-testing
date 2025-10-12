@@ -1,10 +1,9 @@
 import { Component, OnInit, inject } from '@angular/core'; // inject をインポート
 import { ActivatedRoute } from '@angular/router';
-import { MatDialog,MatDialogModule} from '@angular/material/dialog';
-import { MatSnackBar,MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
-import { ReactiveFormsModule, FormsModule} from '@angular/forms';
-import { NgFor, NgIf } from '@angular/common';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 // --- Component Imports ---
 import { MatButtonModule } from '@angular/material/button';
 import { MatRadioModule } from '@angular/material/radio';
@@ -26,22 +25,19 @@ export interface Kaitoutemp {
 }
 
 @Component({
-    selector: 'app-question',
-    templateUrl: './question.component.html',
+  selector: 'app-question',
+  templateUrl: './question.component.html',
   styleUrls: ['./question.component.scss'],
-    standalone: true,
+  standalone: true,
   imports: [
-        NgIf,
-        NgFor,
-        ReactiveFormsModule,
-        FormsModule,
-        MatDialogModule,
-        MatSnackBarModule,
-        MatButtonModule,
-        MatRadioModule,
-        MatSlideToggleModule,
-        // Custom Components
-    ]
+    ReactiveFormsModule,
+    FormsModule,
+    MatDialogModule,
+    MatSnackBarModule,
+    MatButtonModule,
+    MatRadioModule,
+    MatSlideToggleModule,
+  ]
 })
 export class QuestionComponent implements OnInit {
   // --- Properties for Component State ---

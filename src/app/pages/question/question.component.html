@@ -1,68 +1,58 @@
-
 <div style="margin: 15px">
-  <!-- <i class="fa fa-random" aria-hidden="true"></i> -->
   <mat-slide-toggle [(ngModel)]="isShuffle">シャッフル&nbsp;&nbsp;&nbsp;</mat-slide-toggle>
-<button
-  mat-mini-fab
-  color="accent"
-  (click)="openDialog()"
-  aria-label="問題をリセット"
-  title="問題をリセット"
->
-  <i class="fas fa-retweet"></i>
-</button>
-  <!-- 下線 -->
+  <button
+    mat-mini-fab
+    color="accent"
+    (click)="openDialog()"
+    aria-label="問題をリセット"
+    title="問題をリセット"
+  >
+    <i class="fas fa-retweet"></i>
+  </button>
   <hr />
-  <div *ngFor="let toi of questions; let i = index;">
 
-    <div *ngIf="toi.chapter !==''">
+  @for (toi of questions; track toi.chapter; let i = $index) {
+    @if (toi.chapter !== '') {
       <h3>
         <span [id]="'question-label-' + i">問題{{ i + 1 }}.</span>
       </h3>
       <h5>{{ toi.chapter }}</h5>
-      <!-- 選択肢（ラジオボタン） -->
       <div class="form-check horizontal-list">
-        <div *ngIf="toi.multi === undifined">
+        @if (toi.multi === undefined) {
           <mat-radio-group
             aria-labelledby="toi"
             class="example-radio-group"
             [(ngModel)]="selectItem[i]"
           >
-            <mat-radio-button
-              class="example-radio-button"
-              *ngFor="let item of toi.items"
-              [value]="item.val"
-            >
-              {{ item.val + 1 }}.  {{ item.name }}
-              <!-- end loop -->
-            </mat-radio-button>
+            @for (item of toi.items; track item.val) {
+              <mat-radio-button
+                class="example-radio-button"
+                [value]="item.val"
+              >
+                {{ item.val + 1 }}. {{ item.name }}
+              </mat-radio-button>
+            }
             <br />
           </mat-radio-group>
+        }
 
-        </div>
-
-        <!-- 複数選択 -->
-        <div *ngIf="toi.multi === true">
+        @if (toi.multi === true) {
           <app-checkbox
             [check]="toi"
             (isSelected)="checkSelectItem($event, i)"
             (isExact)="setKaitou($event, i )"
-            >
+          >
           </app-checkbox>
           <br />
-        </div>
+        }
       </div>
 
-      <!-- 回答・答えボタン -->
       <button mat-raised-button color="primary" (click)="myCheck(i)">解答</button>
       <button mat-raised-button color="accent">{{ kaitou[i] }}</button>
-      <!-- 解説 -->
-      <div *ngIf="finished[i] === true">
+      @if (finished[i] === true) {
         <app-tips [tips]="toi"></app-tips>
-      </div>
-      <!-- 下線 -->
+      }
       <hr />
-    </div>
-    <!-- end loop -->
-  </div>
+    }
+  }
 </div>
