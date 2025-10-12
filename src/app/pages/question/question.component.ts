@@ -17,6 +17,7 @@ import { itca } from '../data/data_itca';
 import { nihonsyu2 } from '../data/data_nihonsyu2';
 import { nihonsyu3 } from '../data/data_nihonsyu3';
 import { marketing3 } from '../data/data_marketing3';
+import { wine4 } from '../data/data_wine4';
 import { wine5 } from '../data/data_wine5';
 
 // Interface for answer status
@@ -107,6 +108,9 @@ export class QuestionComponent implements OnInit {
         break;
       case 'marketing3':
         this.setQuestions(marketing3);
+        break;
+      case 'wine4':
+        this.setQuestions(wine4);
         break;
       case 'wine5':
         this.setQuestions(wine5);

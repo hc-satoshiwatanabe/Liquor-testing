@@ -12,6 +12,7 @@ import { RouterModule } from '@angular/router';
         <mat-card class="yubi" [routerLink]="['/question/nihonsyu3']">日本酒検定３級（非公式）</mat-card>
         <mat-card class="yubi" [routerLink]="['/question/itca']">ITコーディネーター（非公式）</mat-card>
         <mat-card class="yubi" [routerLink]="['/question/marketing3']">マーケティング検定３級（非公式）</mat-card>
+        <mat-card class="yubi" [routerLink]="['/question/wine4']">ワイン検定4級（非公式）</mat-card>
         <mat-card class="yubi" [routerLink]="['/question/wine5']">ワイン検定5級（非公式）</mat-card>
       </nav>
     </div>
