@@ -9,7 +9,7 @@ import { NgFor } from '@angular/common';
     templateUrl: './checkbox.component.html',
     styleUrls: ['./checkbox.component.scss'],
     standalone: true,
-    imports: [NgFor, MatCheckboxModule, ReactiveFormsModule, FormsModule]
+  imports: [NgFor, ReactiveFormsModule, FormsModule, MatCheckboxModule]
 })
 
 export class CheckboxComponent {

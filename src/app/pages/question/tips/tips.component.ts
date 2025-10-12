@@ -8,7 +8,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
     templateUrl: './tips.component.html',
     styleUrls: ['./tips.component.scss'],
     standalone: true,
-    imports: [MatExpansionModule, NgIf, NgFor]
+  imports: [NgIf, NgFor, MatExpansionModule]
 })
 export class TipsComponent {
   @Input() tips?: Question;

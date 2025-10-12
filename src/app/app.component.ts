@@ -1,18 +1,19 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { HeaderComponent } from './pages/header/header.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
-import { HeaderComponent } from './pages/header/header.component';
+import { RouterModule } from '@angular/router';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   standalone: true,
   imports: [
-    RouterModule,
+    HeaderComponent,
     MatSidenavModule,
-    HeaderComponent ,
     MatIconModule,
+    RouterModule,
   ]
 })
 export class AppComponent {

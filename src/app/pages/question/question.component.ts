@@ -1,7 +1,8 @@
 import { Component, OnInit, inject } from '@angular/core'; // inject をインポート
 import { ActivatedRoute } from '@angular/router';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialog,MatDialogModule} from '@angular/material/dialog';
+import { MatSnackBar,MatSnackBarModule} from '@angular/material/snack-bar';
+
 import { ReactiveFormsModule, FormsModule} from '@angular/forms';
 
 // --- Component Imports ---
@@ -37,12 +38,11 @@ export interface Kaitoutemp {
     NgIf,
     ReactiveFormsModule,
     FormsModule,
-    // Material Design Modules
-    MatButtonModule,
     MatDialogModule,
-    MatRadioModule,
     MatSnackBarModule,
-    MatSlideToggleModule,
+    MatButtonModule,
+    MatRadioModule,
+    MatSlideToggleModule ,
     // Custom Components
     CheckboxComponent,
     DialogComponent, // DialogComponentをimportsに追加
