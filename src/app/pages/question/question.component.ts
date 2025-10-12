@@ -28,26 +28,25 @@ export interface Kaitoutemp {
 }
 
 @Component({
-  selector: 'app-question',
-  standalone: true,
-  templateUrl: './question.component.html',
-  styleUrls: ['./question.component.scss'],
-  imports: [
-    // Common Angular Modules
-    NgFor,
-    NgIf,
-    ReactiveFormsModule,
-    FormsModule,
-    MatDialogModule,
-    MatSnackBarModule,
-    MatButtonModule,
-    MatRadioModule,
-    MatSlideToggleModule ,
-    // Custom Components
-    CheckboxComponent,
-    DialogComponent, // DialogComponentをimportsに追加
-    TipsComponent,
-  ]
+    selector: 'app-question',
+    templateUrl: './question.component.html',
+    styleUrls: ['./question.component.scss'],
+    imports: [
+        // Common Angular Modules
+        NgFor,
+        NgIf,
+        ReactiveFormsModule,
+        FormsModule,
+        MatDialogModule,
+        MatSnackBarModule,
+        MatButtonModule,
+        MatRadioModule,
+        MatSlideToggleModule,
+        // Custom Components
+        CheckboxComponent,
+        DialogComponent, // DialogComponentをimportsに追加
+        TipsComponent,
+    ]
 })
 export class QuestionComponent implements OnInit {
   // --- Properties for Component State ---

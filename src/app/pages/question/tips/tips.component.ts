@@ -7,8 +7,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
     selector: 'app-tips',
     templateUrl: './tips.component.html',
     styleUrls: ['./tips.component.scss'],
-    standalone: true,
-  imports: [NgIf, NgFor, MatExpansionModule]
+    imports: [NgIf, NgFor, MatExpansionModule]
 })
 export class TipsComponent {
   @Input() tips?: Question;

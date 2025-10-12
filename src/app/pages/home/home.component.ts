@@ -5,8 +5,7 @@ import { RouterModule } from '@angular/router';
     selector: 'app-home',
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.scss'],
-    standalone: true,
-  imports: [MatCardModule  , RouterModule]
+    imports: [MatCardModule, RouterModule]
 })
 export class HomeComponent {
 
