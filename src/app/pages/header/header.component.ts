@@ -1,27 +1,21 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component,Output, EventEmitter } from '@angular/core';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
-import { Question } from '../data/model';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
 @Component({
-    selector: 'app-header',
-    templateUrl: './header.component.html',
-    styleUrls: ['./header.component.scss'],
-    standalone: true,
-    imports: [MatToolbarModule, MatButtonModule, MatIconModule]
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss'],
+  standalone: true,
+  imports: [MatToolbarModule, MatButtonModule, MatIconModule]
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
-  @Output() isShow?: EventEmitter<boolean> = new EventEmitter(); // 追加
+  @Output() isShow = new EventEmitter<boolean>(); // ✅ Corrected line
   faHome = faHome;
-  showFiller :boolean= false;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  showFiller = false;
 
   /**
    * showDrawer
@@ -38,5 +32,3 @@ export class HeaderComponent implements OnInit {
   }
 
 }
-
-

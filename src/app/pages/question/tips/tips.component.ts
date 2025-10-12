@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component,Input } from '@angular/core';
 import { Question } from '../../data/model';
 import { NgIf, NgFor } from '@angular/common';
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -10,13 +10,9 @@ import { MatExpansionModule } from '@angular/material/expansion';
     standalone: true,
     imports: [MatExpansionModule, NgIf, NgFor]
 })
-export class TipsComponent implements OnInit {
+export class TipsComponent {
   @Input() tips?: Question;
 
   panelOpenState = false;
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

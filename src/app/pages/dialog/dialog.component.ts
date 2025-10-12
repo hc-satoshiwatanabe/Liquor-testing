@@ -1,19 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
+import { Component } from '@angular/core';
 import { MatDialogModule } from '@angular/material/dialog';
 
 @Component({
     selector: 'app-dialog',
     templateUrl: './dialog.component.html',
     styleUrls: ['./dialog.component.scss'],
-    standalone: true,
-    imports: [MatDialogModule, MatButtonModule]
+  standalone: true,
+  imports: [MatDialogModule]
 })
-export class DialogComponent implements OnInit {
+export class DialogComponent {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

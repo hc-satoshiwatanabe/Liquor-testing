@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input,  Output } from '@angular/core';
 import { Question } from '../../data/model';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -12,18 +12,16 @@ import { NgFor } from '@angular/common';
     imports: [NgFor, MatCheckboxModule, ReactiveFormsModule, FormsModule]
 })
 
-export class CheckboxComponent implements OnInit {
+export class CheckboxComponent {
 
   @Input() check?: Question;
-  @Output() isSelected: EventEmitter<boolean> = new EventEmitter(); // 追加
-  @Output() isExact: EventEmitter<boolean> = new EventEmitter(); // 追加
+  @Output() isSelected = new EventEmitter<boolean>();
+  @Output() isExact = new EventEmitter<boolean>();
 
-  ngOnInit(): void {
-  }
 
   public someComplete():boolean {
 
-    let ar: number[] = [];
+    const ar: number[] = [];
     if (this.check.items == null) {
       return false;
     }
@@ -32,10 +30,9 @@ export class CheckboxComponent implements OnInit {
     this.isSelected.emit(true);
     // console.log(this.check.items.filter(t => t.val));
 
-    for (let i = 0; i < this.check.items.length; i++){
-      if (this.check.items[i].completed === true) {
-        ar.push(this.check.items[i].val);
-
+    for (const item of this.check.items) {
+      if (item.completed === true) {
+        ar.push(item.val);
       }
     }
 
