@@ -1,13 +1,33 @@
-import { Component, EventEmitter, Input,  Output } from '@angular/core';
-import { Question } from '../../data/model';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Question } from '../data/model';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @Component({
-    selector: 'app-checkbox',
-    templateUrl: './checkbox.component.html',
-    styleUrls: ['./checkbox.component.scss'],
-    imports: [ ReactiveFormsModule, FormsModule, MatCheckboxModule]
+  selector: 'app-checkbox',
+  template: `
+    <section class="example-section">
+      <span class="example-list-section">
+        @for (item of check?.items; track item.val) {
+        <mat-checkbox style="display:block;margin: 15px;" [(ngModel)]="item.completed" [value]="item.val"
+          (change)="someComplete()">
+          {{ item.val + 1 }}.{{ item.name }}
+        </mat-checkbox>
+        }
+        @empty {
+        <p>項目がありません。</p>
+        }
+      </span>
+    </section>
+  `,
+  styles: [`
+    .horizontal-list {
+      overflow-x: auto;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+  `],
+  imports: [ReactiveFormsModule, FormsModule, MatCheckboxModule]
 })
 
 export class CheckboxComponent {
@@ -17,7 +37,7 @@ export class CheckboxComponent {
   @Output() isExact = new EventEmitter<boolean>();
 
 
-  public someComplete():boolean|undefined {
+  public someComplete(): boolean | undefined {
 
     const ar: number[] = [];
     if (this.check?.items == null) {
@@ -47,7 +67,7 @@ export class CheckboxComponent {
   }
 
 
-  private arrayEquals(a:any, b:any) {
+  private arrayEquals(a: any, b: any) {
     return Array.isArray(a) &&
       Array.isArray(b) &&
       a.length === b.length &&

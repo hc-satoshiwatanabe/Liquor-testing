@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
+import { HomeComponent } from './pages/home.component';
 import { QuestionComponent } from './pages/question/question.component';
 
 // AppRoutingModuleからルート定義のみを移設

@@ -1,0 +1,49 @@
+import { Component, Input } from '@angular/core';
+import { Question } from '../data/model';
+import { MatExpansionModule } from '@angular/material/expansion';
+
+@Component({
+  selector: 'app-tips',
+  template: `
+    <mat-accordion>
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            解説
+          </mat-panel-title>
+          <mat-panel-description>
+            {{panelOpenState ? '閉じる' : '開く'}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        @if (tips?.multi === undefined) {
+        <p>正解：{{tips.answer[0] + 1}}</p>
+        } @else if (tips?.multi === true) {
+        正解：
+        @for (item of tips.answer; track item) {
+        <p>{{item + 1}},</p>
+        }
+        }
+        <div class="pre-wrap">
+          {{tips?.tips}}
+          <br>
+          関連：<a [href]="tips?.link" target="_blank">{{tips?.link}}</a>
+        </div>
+
+      </mat-expansion-panel>
+    </mat-accordion>
+    `,
+  styles: [`
+    .pre-wrap {
+      white-space: pre-wrap;
+    }
+  `],
+  imports: [MatExpansionModule]
+})
+export class TipsComponent {
+  @Input() tips?: Question;
+
+  panelOpenState = false;
+
+}

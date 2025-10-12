@@ -9,7 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { DialogComponent } from '../dialog/dialog.component'; // DialogComponentをインポート
-import { TipsComponent } from './tips/tips.component';
+import { TipsComponent } from './tips.component';
 
 // --- Data and Models ---
 import { Question } from '../data/model';
