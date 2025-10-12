@@ -2,16 +2,22 @@
 <div style="margin: 15px">
   <!-- <i class="fa fa-random" aria-hidden="true"></i> -->
   <mat-slide-toggle [(ngModel)]="isShuffle">シャッフル&nbsp;&nbsp;&nbsp;</mat-slide-toggle>
-  <button mat-mini-fab  color="accent" (click)="openDialog()">
-    <i class="fas fa-retweet"></i>
-  </button>
+<button
+  mat-mini-fab
+  color="accent"
+  (click)="openDialog()"
+  aria-label="問題をリセット"
+  title="問題をリセット"
+>
+  <i class="fas fa-retweet"></i>
+</button>
   <!-- 下線 -->
   <hr />
   <div *ngFor="let toi of questions; let i = index;">
 
     <div *ngIf="toi.chapter !==''">
       <h3>
-        <label id="toi">問題{{ i + 1 }}.</label>
+        <span [id]="'question-label-' + i">問題{{ i + 1 }}.</span>
       </h3>
       <h5>{{ toi.chapter }}</h5>
       <!-- 選択肢（ラジオボタン） -->

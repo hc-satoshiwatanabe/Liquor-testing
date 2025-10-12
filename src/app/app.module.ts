@@ -2,11 +2,13 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
     declarations: [],
   imports: [
-        AppComponent,
+    AppComponent,
+    BrowserAnimationsModule,
         ServiceWorkerModule.register('ngsw-worker.js', {
             enabled: environment.production,
             // Register the ServiceWorker as soon as the application is stable
@@ -14,6 +16,6 @@ import { environment } from '../environments/environment';
             registrationStrategy: 'registerWhenStable:30000'
         })
     ],
-    providers: [],
+  providers: []
 })
 export class AppModule { }

@@ -1,62 +1,76 @@
-import { DialogComponent } from './../dialog/dialog.component';
-import { itca } from '../data/data_itca';
-import { Question } from '../data/model';
-import { nihonsyu3 } from '../data/data_nihonsyu3';
-import { nihonsyu2 } from '../data/data_nihonsyu2';
-import { marketing3 } from '../data/data_marketing3';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core'; // inject をインポート
 import { ActivatedRoute } from '@angular/router';
-import { MatDialog } from '@angular/material/dialog';
-import { UntypedFormGroup, ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { TipsComponent } from './tips/tips.component';
-import { CheckboxComponent } from './checkbox/checkbox.component';
-import { MatRadioModule } from '@angular/material/radio';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { ReactiveFormsModule, FormsModule} from '@angular/forms';
+
+// --- Component Imports ---
 import { NgFor, NgIf } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
+import { MatRadioModule } from '@angular/material/radio';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { CheckboxComponent } from './checkbox/checkbox.component';
+import { TipsComponent } from './tips/tips.component';
+import { DialogComponent } from '../dialog/dialog.component'; // DialogComponentをインポート
 
-export interface Kaitoutemp{
+// --- Data and Models ---
+import { Question } from '../data/model';
+import { itca } from '../data/data_itca';
+import { nihonsyu2 } from '../data/data_nihonsyu2';
+import { nihonsyu3 } from '../data/data_nihonsyu3';
+import { marketing3 } from '../data/data_marketing3';
+
+// Interface for answer status
+export interface Kaitoutemp {
   msg: string;
   isExact: boolean;
-
 }
 
 @Component({
-    selector: 'app-question',
-    templateUrl: './question.component.html',
-    styleUrls: ['./question.component.scss'],
-    standalone: true,
-    imports: [MatSlideToggleModule, ReactiveFormsModule, FormsModule, MatButtonModule, NgFor, NgIf, MatRadioModule, CheckboxComponent, TipsComponent]
+  selector: 'app-question',
+  standalone: true,
+  templateUrl: './question.component.html',
+  styleUrls: ['./question.component.scss'],
+  imports: [
+    // Common Angular Modules
+    NgFor,
+    NgIf,
+    ReactiveFormsModule,
+    FormsModule,
+    // Material Design Modules
+    MatButtonModule,
+    MatDialogModule,
+    MatRadioModule,
+    MatSnackBarModule,
+    MatSlideToggleModule,
+    // Custom Components
+    CheckboxComponent,
+    DialogComponent, // DialogComponentをimportsに追加
+    TipsComponent,
+  ]
 })
 export class QuestionComponent implements OnInit {
-
-  toppings: UntypedFormGroup;
+  // --- Properties for Component State ---
   selectItem: number[] = [];
   kaitou: string[] = [];
   kaitoutemp: Kaitoutemp[] = [];
   finished: boolean[] = [];
   corrects = 0;
-
   isShuffle = false;
-  //試験データの取得
   questions: Question[] = [];
 
-  constructor(
-    private route: ActivatedRoute,
-    public dialog: MatDialog,
-    private _snackBar: MatSnackBar
-  ) {  }
+  // --- Dependency Injection using inject() ---
+  private route = inject(ActivatedRoute);
+  private dialog = inject(MatDialog);
+  private _snackBar = inject(MatSnackBar);
 
   ngOnInit(): void {
-    // this.isShuffle = true;
     this.getId();
   }
 
-  public openDialog() {
-
-    if (this.HasSelected() === false) {
-      this.getId();
+  public openDialog(): void {
+    if (!this.hasSelected()) {
+      this.getId(); // Reset questions if none are answered
       return;
     }
 
@@ -66,173 +80,118 @@ export class QuestionComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
 
       if (result === true) {
+        // Reset all states
         this.getId();
         this.selectItem = [];
         this.kaitou = [];
         this.finished = [];
+        this.corrects = 0;
 
-        //チェックボックスを初期化
-        for (let i = 0; this.questions.length; i++){
-          if (this.questions[i].multi === true) {
-            for (let ii = 0; this.questions[i].items.length; ii++){
-              this.questions[i].items[ii].completed = false;
+        // Reset checkboxes state
+        // 修正点: 無限ループになる可能性があったfor文の条件式を修正
+        for (const question of this.questions) {
+          if (question.multi === true) {
+            for (const item of question.items) {
+              item.completed = false;
             }
           }
         }
       }
-
     });
-
   }
 
   private getId(): void {
-    //パスパラメータを取得
     const id = this.route.snapshot.paramMap.get('id');
-
     switch (id) {
       case 'nihonsyu2':
-        // 日本酒検定
-        // this.questions = nihonsyu3;
-        this.SetQuestions(nihonsyu2);
+        this.setQuestions(nihonsyu2);
         break;
       case 'nihonsyu3':
-        // 日本酒検定
-        // this.questions = nihonsyu3;
-        this.SetQuestions(nihonsyu3);
+        this.setQuestions(nihonsyu3);
         break;
-
       case 'itca':
-        // ITコーディネーター
-        // this.questions = itca;
-        this.SetQuestions(itca);
+        this.setQuestions(itca);
         break;
-
       case 'marketing3':
-        // マーケティング検定３級
-        this.SetQuestions(marketing3);
+        this.setQuestions(marketing3);
+        break;
+      default:
+        // Handle unknown id if necessary
+        this.questions = [];
         break;
     }
-
   }
 
-  private SetQuestions(p_Ar: Question[]) {
-
-    this.questions = [];
-
-    let wi = 0;
-
-    //シャッフル有無
+  private setQuestions(questionArray: Question[]): void {
     if (this.isShuffle) {
-
-      //要素数分の配列を作成
-      let randomAr: number[] = [...Array(p_Ar.length)].map((_, i) => i); //=> [ 0, 1, 2, 3, 4 ]
-
-      //要素番号をシャッフル
-      randomAr = this.shuffle(randomAr);
-
-      //問題文に代入
-      for (let i = 0; i < p_Ar.length; i++) {
-        if (p_Ar[randomAr[i]].chapter !== '') {
-          this.questions[wi] = p_Ar[randomAr[i]];
-          wi++;
-        }
-      }
-    }
-    else {
-      //事前登録のデータ順
-      this.questions = p_Ar;
-
-    }
-  }
-  private shuffle(array: any) {
-    for (let i = array.length - 1; i >= 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-  }
-
-  private HasSelected(): Boolean {
-    for (let i = 0; i < this.questions.length; i++) {
-      if (this.selectItem[i] !== undefined) {
-        return true;
-      }
-    }
-    return false;
-  }
-
-  public myCheck(cidx:number) {
-    // for (let i = 0; i < this.questions.length; i++) {
-    if (this.selectItem[cidx] !== undefined) {
-
-      //要素数分の配列を作成し、５の倍数の一覧を生成
-      const mod5Ar: number[] = [...Array(this.questions.length)]
-        .map((_, i) => i)
-        .filter(function (n) { return (n % 5 == 0); }); //=> [ 5, 10, 15, 20, 25 ]
-
-        //択一式問題
-      if (this.questions[cidx].multi === undefined) {
-        if (this.selectItem[cidx] === this.questions[cidx].answer[0]) {
-          this.kaitou[cidx] = '正解！';
-
-          //連続正解し、正解数が５の倍数の場合にスナックバーを表示する
-          this.CheckSnackBar(cidx, mod5Ar);
-
-        }
-        else {
-          this.kaitou[cidx] = '不正解。';
-          this.corrects = 0;
-          // this.finished[cidx] = false;
-          }
-        this.finished[cidx] = true;
-      }
-      //複数選択
-      else {
-        this.kaitou[cidx] = this.kaitoutemp[cidx].msg;
-        if (this.kaitoutemp[cidx].isExact === true) {
-
-          //連続正解し、正解数が５の倍数の場合にスナックバーを表示する
-          this.CheckSnackBar(cidx, mod5Ar);
-
-        }
-        this.finished[cidx] = true;
-      }
-    }
-    // }
-  }
-
-  private CheckSnackBar(cidx:number, mod5Ar:number[]) {
-    if (this.finished[cidx] == undefined) {
-      this.corrects++;        //解答済みの問題を正解しても、連続正解に加算しない。
-    }
-    if (mod5Ar.indexOf(this.corrects) >= 1) {
-      this.openSnackBar(this.corrects.toString(), 1000);
+      // Create a shuffled copy of the array
+      this.questions = [...questionArray].sort(() => Math.random() - 0.5);
+    } else {
+      this.questions = [...questionArray]; // Use a copy to avoid mutation
     }
   }
 
-  public checkSelectItem( t: boolean, i :number) {
-    this.selectItem[i] = 1;
+  private hasSelected(): boolean {
+    // Checks if at least one question has been answered
+    return this.selectItem.some(item => item !== undefined);
   }
 
-  /**
-   * setKaitou
-   */
-  public setKaitou(isExact: boolean, i: number) {
-    if (isExact === true) {
-      this.kaitoutemp[i] = { msg: '正解！', isExact: true };
-      // this.finished[i] = true;
-    }
-    else {
-      this.kaitoutemp[i] = { msg: '不正解。', isExact: false };
-      // this.finished[i] = false;
+  public myCheck(cidx: number): void {
+    if (this.selectItem[cidx] === undefined) {
+      return;
     }
 
+    const isMultiSelect = this.questions[cidx].multi === true;
+    let isCorrect = false;
+
+    if (isMultiSelect) {
+      // Logic for multi-select questions (checkbox)
+      isCorrect = this.kaitoutemp[cidx]?.isExact === true;
+      this.kaitou[cidx] = this.kaitoutemp[cidx]?.msg || '不正解。';
+    } else {
+      // Logic for single-select questions (radio)
+      isCorrect = this.selectItem[cidx] === this.questions[cidx].answer[0];
+      this.kaitou[cidx] = isCorrect ? '正解！' : '不正解。';
+    }
+
+    if (isCorrect) {
+      this.checkConsecutiveAnswers(cidx);
+    } else {
+      this.corrects = 0; // Reset consecutive correct count on wrong answer
+    }
+
+    this.finished[cidx] = true;
   }
 
+  private checkConsecutiveAnswers(cidx: number): void {
+    if (this.finished[cidx] === undefined) {
+      this.corrects++;
+    }
+    // Display snackbar for every 5 consecutive correct answers
+    if (this.corrects > 0 && this.corrects % 5 === 0) {
+      this.openSnackBar(`${this.corrects}問連続正解！`, 1500);
+    }
+  }
 
-  private openSnackBar(msg:string, p_time:number) {
-    this._snackBar.open(`${msg} 問連続正解！`, null,{
-      duration: p_time,
+  public checkSelectItem(isSelected: boolean, index: number): void {
+    // This method is called from the checkbox component's output event
+    // It marks the question as "touched" or "answered" so myCheck can run
+    if (isSelected) {
+      this.selectItem[index] = 1; // Use a simple flag
+    }
+  }
+
+  public setKaitou(isExact: boolean, index: number): void {
+    // This method is called from the checkbox component to set the answer state
+    this.kaitoutemp[index] = {
+      msg: isExact ? '正解！' : '不正解。',
+      isExact: isExact
+    };
+  }
+
+  private openSnackBar(msg: string, duration: number): void {
+    this._snackBar.open(msg, '閉じる', {
+      duration: duration,
       horizontalPosition: 'center',
       verticalPosition: 'bottom'
     });

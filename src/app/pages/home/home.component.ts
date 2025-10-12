@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 
@@ -9,11 +9,7 @@ import { MatCardModule } from '@angular/material/card';
     standalone: true,
     imports: [MatCardModule, RouterLink]
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }
