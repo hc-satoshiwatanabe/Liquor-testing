@@ -6,8 +6,6 @@ export const wine5: Question[] = [
     "items": [
       { "val": 0, "name": "○" },
       { "val": 1, "name": "×" },
-      { "val": 2, "name": "" },
-      { "val": 3, "name": "" }
     ],
     "answer": [0],
     "tips": ""
@@ -26,8 +24,6 @@ export const wine5: Question[] = [
     "items": [
       { "val": 0, "name": "○" },
       { "val": 1, "name": "×" },
-      { "val": 2, "name": "" },
-      { "val": 3, "name": "" }
     ],
     "answer": [0],
     "tips": ""
@@ -37,8 +33,6 @@ export const wine5: Question[] = [
     "items": [
       { "val": 0, "name": "○" },
       { "val": 1, "name": "×" },
-      { "val": 2, "name": "" },
-      { "val": 3, "name": "" }
     ],
     "answer": [0],
     "tips": ""
@@ -48,8 +42,6 @@ export const wine5: Question[] = [
     "items": [
       { "val": 0, "name": "○" },
       { "val": 1, "name": "×" },
-      { "val": 2, "name": "" },
-      { "val": 3, "name": "" }
     ],
     "answer": [1],
     "tips": "ソーヴィニヨン・ブランは、フランスのボルドー地方を原産地とする、緑色の果皮をもつブドウの品種である。"

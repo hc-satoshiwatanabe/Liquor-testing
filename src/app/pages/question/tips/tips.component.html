@@ -1,9 +1,6 @@
 <mat-accordion>
-  <mat-expansion-panel
-      (opened)="panelOpenState = true"
-      (closed)="panelOpenState = false">
+  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
 
-    <!-- 見出し（閉じても見えるところ） -->
     <mat-expansion-panel-header>
       <mat-panel-title>
         解説
@@ -13,22 +10,19 @@
       </mat-panel-description>
     </mat-expansion-panel-header>
 
-      <!-- 開いてみえるところ -->
-      <div *ngIf="tips.multi===undefined">
-        <p>正解：{{tips.answer[0]+1}}</p>
-      </div>
+    @if (tips.multi === undefined) {
+    <p>正解：{{tips.answer[0] + 1}}</p>
+    } @else if (tips.multi === true) {
+    正解：
+    @for (item of tips.answer; track item) {
+    <p>{{item + 1}},</p>
+    }
+    }
+    <div class="pre-wrap">
+      {{tips.tips}}
+      <br>
+      関連：<a [href]="tips.link" target="_blank">{{tips.link}}</a>
+    </div>
 
-      <div *ngIf="tips.multi===true">
-         正解：
-           <p *ngFor="let item of tips.answer;">
-              {{item+1}},
-           </p>
-      </div>
-      <div class="pre-wrap">
-        {{tips.tips}}
-        <br>
-        関連：<a [href]="tips.link" target="_blank">{{tips.link}}</a>
-      </div>
-
-    </mat-expansion-panel>
+  </mat-expansion-panel>
 </mat-accordion>

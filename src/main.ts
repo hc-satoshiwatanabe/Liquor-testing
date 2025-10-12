@@ -25,7 +25,7 @@ bootstrapApplication(AppComponent, {
 
     // 4. ServiceWorker機能を提供
     provideServiceWorker('ngsw-worker.js', {
-      enabled: !isDevMode(),
+      enabled: false,
       registrationStrategy: 'registerWhenStable:30000'
     })
   ]

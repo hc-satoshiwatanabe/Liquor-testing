@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { DialogComponent } from '../dialog/dialog.component'; // DialogComponentをインポート
+import { TipsComponent } from './tips/tips.component';
 
 // --- Data and Models ---
 import { Question } from '../data/model';
@@ -37,6 +38,7 @@ export interface Kaitoutemp {
     MatButtonModule,
     MatRadioModule,
     MatSlideToggleModule,
+    TipsComponent,
   ]
 })
 export class QuestionComponent implements OnInit {
@@ -55,10 +57,7 @@ export class QuestionComponent implements OnInit {
   private _snackBar = inject(MatSnackBar);
 
   ngOnInit(): void {
-    setTimeout(() => {
       this.getId();
-    }, 100);
-
     //console.log(this.questions)
   }
 
@@ -126,6 +125,7 @@ export class QuestionComponent implements OnInit {
     } else {
       this.questions = [...questionArray]; // Use a copy to avoid mutation
     }
+    this.finished = new Array(this.questions.length).fill(false);
   }
 
   private hasSelected(): boolean {
@@ -161,9 +161,7 @@ export class QuestionComponent implements OnInit {
   }
 
   private checkConsecutiveAnswers(cidx: number): void {
-    if (this.finished[cidx] === undefined) {
       this.corrects++;
-    }
     // Display snackbar for every 5 consecutive correct answers
     if (this.corrects > 0 && this.corrects % 5 === 0) {
       this.openSnackBar(`${this.corrects}問連続正解！`, 1500);

@@ -1,13 +1,12 @@
 import { Component,Input } from '@angular/core';
 import { Question } from '../../data/model';
-import { NgIf, NgFor } from '@angular/common';
 import { MatExpansionModule } from '@angular/material/expansion';
 
 @Component({
     selector: 'app-tips',
     templateUrl: './tips.component.html',
     styleUrls: ['./tips.component.scss'],
-    imports: [NgIf, NgFor, MatExpansionModule]
+    imports: [MatExpansionModule]
 })
 export class TipsComponent {
   @Input() tips?: Question;
