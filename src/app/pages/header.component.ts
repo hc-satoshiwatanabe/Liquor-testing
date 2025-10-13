@@ -8,12 +8,10 @@ import { MatIconModule } from "@angular/material/icon";
   template: `
       <hr class="raibowline">
       <mat-toolbar>
-        <button mat-icon-button
-          class="example-icon"
-          aria-label="Example icon-button with menu icon"
+        <button matMiniFab aria-label="Example icon button with a menu icon"
           (click)="showDrawer()"
         >
-            <mat-icon>menu</mat-icon>
+          <mat-icon>menu</mat-icon>
         </button>
         <span>試験対策アプリ</span>
         <span class="example-spacer"></span>
