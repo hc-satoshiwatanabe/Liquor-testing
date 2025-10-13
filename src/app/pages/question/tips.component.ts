@@ -1,10 +1,10 @@
-import { Component, Input } from '@angular/core';
-import { Question } from '../data/model';
-import { MatExpansionModule } from '@angular/material/expansion';
+import { Component, Input } from "@angular/core";
+import { Question } from "../data/model";
+import { MatExpansionModule } from "@angular/material/expansion";
 
 @Component({
-  selector: 'app-tips',
-  template: `
+	selector: "app-tips",
+	template: `
     <mat-accordion>
       <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
 
@@ -34,16 +34,17 @@ import { MatExpansionModule } from '@angular/material/expansion';
       </mat-expansion-panel>
     </mat-accordion>
     `,
-  styles: [`
+	styles: [
+		`
     .pre-wrap {
       white-space: pre-wrap;
     }
-  `],
-  imports: [MatExpansionModule]
+  `,
+	],
+	imports: [MatExpansionModule],
 })
 export class TipsComponent {
-  @Input() tips?: Question;
+	@Input() tips?: Question;
 
-  panelOpenState = false;
-
+	panelOpenState = false;
 }

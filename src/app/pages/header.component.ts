@@ -1,11 +1,11 @@
-import { Component, Output, EventEmitter } from '@angular/core';
-import { faHome } from '@fortawesome/free-solid-svg-icons';
+import { Component, Output, EventEmitter } from "@angular/core";
+import { faHome } from "@fortawesome/free-solid-svg-icons";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatIconModule } from "@angular/material/icon";
 
 @Component({
-  selector: 'app-header',
-  template: `
+	selector: "app-header",
+	template: `
       <hr class="raibowline">
       <mat-toolbar>
         <button matMiniFab aria-label="Example icon button with a menu icon"
@@ -21,7 +21,8 @@ import { MatIconModule } from "@angular/material/icon";
         </a>
       </mat-toolbar>
     `,
-  styles: [`
+	styles: [
+		`
     .raibowline{
       width:                   100%;
       height:                  2px;
@@ -38,27 +39,25 @@ import { MatIconModule } from "@angular/material/icon";
     .example-spacer {
       flex: 1 1 auto;
     }
-  `],
-  imports: [MatToolbarModule, MatIconModule]
+  `,
+	],
+	imports: [MatToolbarModule, MatIconModule],
 })
 export class HeaderComponent {
+	@Output() isShow = new EventEmitter<boolean>(); // ✅ Corrected line
+	faHome = faHome;
+	showFiller = false;
 
-  @Output() isShow = new EventEmitter<boolean>(); // ✅ Corrected line
-  faHome = faHome;
-  showFiller = false;
-
-  /**
-   * showDrawer
-   */
-  public showDrawer() {
-    if (this.showFiller == true) {
-      this.showFiller = false;
-      this.isShow.emit(false);
-    }
-    else {
-      this.showFiller = true;
-      this.isShow.emit(true);
-    }
-  }
-
+	/**
+	 * showDrawer
+	 */
+	public showDrawer() {
+		if (this.showFiller === true) {
+			this.showFiller = false;
+			this.isShow.emit(false);
+		} else {
+			this.showFiller = true;
+			this.isShow.emit(true);
+		}
+	}
 }

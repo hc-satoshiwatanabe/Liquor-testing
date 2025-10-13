@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
-import { MatCardModule } from '@angular/material/card';
-import { RouterModule } from '@angular/router';
+import { Component } from "@angular/core";
+import { MatCardModule } from "@angular/material/card";
+import { RouterModule } from "@angular/router";
 
 @Component({
-  selector: 'app-home',
-  template: `
+	selector: "app-home",
+	template: `
     <div class="container">
       <h1 class="title">資格・検定クイズ</h1>
       <nav class="card-list">
@@ -17,7 +17,8 @@ import { RouterModule } from '@angular/router';
       </nav>
     </div>
   `,
-  styles: [`
+	styles: [
+		`
     .container {
       margin: 20px auto;
       max-width: 600px;
@@ -51,8 +52,9 @@ import { RouterModule } from '@angular/router';
       transform: translateY(-5px);
       box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
     }
-  `],
-  standalone: true,
-  imports: [MatCardModule, RouterModule]
+  `,
+	],
+	standalone: true,
+	imports: [MatCardModule, RouterModule],
 })
-export class HomeComponent { }
+export class HomeComponent {}

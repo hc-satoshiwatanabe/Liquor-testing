@@ -1,10 +1,10 @@
-import { Routes } from '@angular/router';
-import { HomeComponent } from './pages/home.component';
-import { QuestionComponent } from './pages/question/question.component';
+import { Routes } from "@angular/router";
+import { HomeComponent } from "./pages/home.component";
+import { QuestionComponent } from "./pages/question/question.component";
 
 // AppRoutingModuleからルート定義のみを移設
 export const routes: Routes = [
-  { path: 'question/:id', component: QuestionComponent },
-  { path: '', component: HomeComponent, pathMatch: 'full' },
-  { path: '**', redirectTo: '' }
+	{ path: "question/:id", component: QuestionComponent },
+	{ path: "", component: HomeComponent, pathMatch: "full" },
+	{ path: "**", redirectTo: "" },
 ];

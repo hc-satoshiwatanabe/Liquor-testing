@@ -5,10 +5,9 @@
  * @interface Item
  */
 export interface Item {
-  val: number;
-  name: string;
-  completed?: boolean;
-
+	val: number;
+	name: string;
+	completed?: boolean;
 }
 /**
  *　問題集のモデル
@@ -17,10 +16,10 @@ export interface Item {
  * @interface Question
  */
 export interface Question {
-  chapter: string;
-  items: Item[];
-  answer: number[];
-  multi?: boolean;
-  tips?: string;
-  link?:string;
+	chapter: string;
+	items: Item[];
+	answer: number[];
+	multi?: boolean;
+	tips?: string;
+	link?: string;
 }
