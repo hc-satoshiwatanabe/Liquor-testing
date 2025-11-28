@@ -6,7 +6,7 @@ import { provideRouter, withHashLocation } from "@angular/router";
 import { provideHttpClient } from "@angular/common/http";
 import { provideAnimations } from "@angular/platform-browser/animations";
 import { provideServiceWorker } from "@angular/service-worker";
-import { isDevMode, provideZoneChangeDetection } from "@angular/core";
+import {  provideZoneChangeDetection } from "@angular/core";
 
 // 作成したルート設定をインポート
 import { routes } from "./app/app.route";
