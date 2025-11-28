@@ -6,7 +6,7 @@ import { provideRouter, withHashLocation } from "@angular/router";
 import { provideHttpClient } from "@angular/common/http";
 import { provideAnimations } from "@angular/platform-browser/animations";
 import { provideServiceWorker } from "@angular/service-worker";
-import { isDevMode } from "@angular/core";
+import { isDevMode, provideZoneChangeDetection } from "@angular/core";
 
 // 作成したルート設定をインポート
 import { routes } from "./app/app.route";
@@ -14,7 +14,7 @@ import { routes } from "./app/app.route";
 bootstrapApplication(AppComponent, {
 	providers: [
 		// 1. ルーティング機能を提供し、ハッシュ形式(#)のURLを使用する設定を追加
-		provideRouter(routes, withHashLocation()),
+		provideZoneChangeDetection(),provideRouter(routes, withHashLocation()),
 
 		// 2. アニメーション機能を提供
 		provideAnimations(),
