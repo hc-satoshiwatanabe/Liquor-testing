@@ -2,7 +2,9 @@ import { Component, Output, EventEmitter } from "@angular/core";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatIconModule } from "@angular/material/icon";
-
+import {
+  MatButtonModule
+} from "@angular/material/button";
 @Component({
 	selector: "app-header",
 	template: `
@@ -41,7 +43,7 @@ import { MatIconModule } from "@angular/material/icon";
     }
   `,
 	],
-	imports: [MatToolbarModule, MatIconModule],
+	imports: [MatToolbarModule, MatIconModule, MatButtonModule],
 })
 export class HeaderComponent {
 	@Output() isShow = new EventEmitter<boolean>(); // ✅ Corrected line

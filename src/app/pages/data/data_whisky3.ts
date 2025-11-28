@@ -1,14 +1,18 @@
+import type {
+  Question
+} from "./model";
+
 export const nihonsyu3: Question[] = [
   {
-    chapter: "",
+    chapter: "次の中で蒸留酒に分水されないのはどれか。",
     items: [
-      { val: 0, name: "" },
-      { val: 1, name: "" },
-      { val: 2, name: "" },
-      { val: 3, name: "" },
+      { val: 0, name: "焼酎" },
+      { val: 1, name: "シェリー" },
+      { val: 2, name: "コニャック" },
+      { val: 3, name: "ラム" },
     ],
-    answer: [],
-    tips: "",
+    answer: [2],
+    tips: "シェリーはお酒の一種で、 スペイン南部のアンダルシア地方で造られる酒精強化ワインです。",
   },
   {
     chapter: "",

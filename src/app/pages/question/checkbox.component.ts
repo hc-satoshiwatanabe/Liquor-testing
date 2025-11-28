@@ -62,7 +62,7 @@ export class CheckboxComponent {
 		}
 	}
 
-	private arrayEquals(a: any, b: any) {
+	private arrayEquals(a: number[], b: number[]): boolean {
 		return (
 			Array.isArray(a) &&
 			Array.isArray(b) &&
