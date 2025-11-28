@@ -2,7 +2,7 @@ import type {
   Question
 } from "./model";
 
-export const nihonsyu3: Question[] = [
+export const whisky3: Question[] = [
   {
     chapter: "次の中で蒸留酒に分水されないのはどれか。",
     items: [
@@ -11,7 +11,7 @@ export const nihonsyu3: Question[] = [
       { val: 2, name: "コニャック" },
       { val: 3, name: "ラム" },
     ],
-    answer: [2],
+    answer: [1],
     tips: "シェリーはお酒の一種で、 スペイン南部のアンダルシア地方で造られる酒精強化ワインです。",
   },
   {

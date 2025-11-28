@@ -19,6 +19,7 @@ import { nihonsyu3 } from "../data/data_nihonsyu3";
 import { marketing3 } from "../data/data_marketing3";
 import { wine4 } from "../data/data_wine4";
 import { wine5 } from "../data/data_wine5";
+import { whisky3 } from "../data/data_whisky3";
 
 // Interface for answer status
 export interface Kaitoutemp {
@@ -115,6 +116,9 @@ export class QuestionComponent implements OnInit {
 			case "wine5":
 				this.setQuestions(wine5);
 				break;
+      case "whisky3":
+			  this.setQuestions(whisky3);
+			break;
 			default:
 				// Handle unknown id if necessary
 				this.questions = [];
