@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
-import { Question } from "../data/model";
+import type { Question } from "../data/model";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { MatCheckboxModule } from "@angular/material/checkbox";
 
